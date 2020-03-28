@@ -105,10 +105,60 @@ class ListMap<K> implements Map<K> {
     ListElement currPointer = first;
     int i = 1;
     while (currPointer != null) {
-      if (currPointer.value < sunfPoint) {
+      if (currPointer.value <= sunfPoint) {
         System.out.println(i + ". " + currPointer.key + " " + currPointer.value);
+        i++;
       }
       currPointer = currPointer.next;
     }
+    System.out.println("0. SKIP");
+  }
+
+  public K namaTumbuhanTerpilih(int x, int sunfPoint) {
+    ListElement currPointer = first;
+    int i = 1;
+    K namanya = null;
+    while (currPointer != null) {
+      if (currPointer.value <= sunfPoint) {
+        if (x == i) {
+          namanya = currPointer.key;
+          break;
+        } else {
+          i++;
+          currPointer = currPointer.next;
+        }
+      }
+    }
+    return namanya;
+  }
+
+  public int hargaTumbuhanTerpilih(int x, int sunfPoint) {
+    ListElement currPointer = first;
+    int i = 1;
+    int harganya = 0;
+    while (currPointer != null) {
+      if (currPointer.value <= sunfPoint) {
+        if (x == i) {
+          harganya = currPointer.value;
+          break;
+        } else {
+          i++;
+          currPointer = currPointer.next;
+        }
+      }
+    }
+    return harganya;
+  }
+
+  public int banyakPilihan(int sunfPoint) {
+    ListElement currPointer = first;
+    int banyakpilihan = 0;
+    while (currPointer != null) {
+      if (currPointer.value <= sunfPoint) {
+        banyakpilihan++;
+      }
+      currPointer = currPointer.next;
+    }
+    return banyakpilihan;
   }
 }
