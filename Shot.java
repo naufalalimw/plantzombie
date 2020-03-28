@@ -1,7 +1,7 @@
-public class Shot<T> {
-	private T damage;
+public class Shot {
+	private int damage;
 
-	public Shot(T damage) {
-		this.damage = damage;
+	public Shot(int damage) {
+		this.damage = damage
 	}
 }

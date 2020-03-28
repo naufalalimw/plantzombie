@@ -2,6 +2,7 @@ public abstract class Plant implements Creature{
     protected int hp;
     protected Point position;
     protected int attack;
+    protected int price;
 
     //Implementasi Interface
     public void takeDamage(int damage){
@@ -21,6 +22,10 @@ public abstract class Plant implements Creature{
         return this.position;
     }
 
+    public int getPrice(){
+        return this.price;
+    }
+
     //setter
     // public void setHP(int hp){
     //     this.hp = hp;
@@ -35,9 +40,9 @@ public abstract class Plant implements Creature{
         this.position = newPosition;
     }
 
-    public void setAttack(int att){
-        this.attack = att;
-    }
+    // public void setAttack(int att){
+    //     this.attack = att;
+    // }
     
     //methods
     public boolean isDead(){
