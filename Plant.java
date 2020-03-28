@@ -1,7 +1,7 @@
 public abstract class Plant implements Creature{
-    public int HP;
-    public Point position;
-    public int attack;
+    private int HP;
+    private Point position;
+    private int attack;
 
     //Implementasi Interface
     public void takeDamage(int damage){
