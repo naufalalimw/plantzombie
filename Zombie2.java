@@ -1,8 +1,8 @@
-public class Zombie1 extends Zombie{
+public class Zombie2 extends Zombie{
 
-    public Zombie1(Point p){
-        this.HP= 100;
-        this.attack = 2;
+    public Zombie2(Point p){
+        this.HP= 50;
+        this.attack = 3;
         this.position = p;
     }
 
@@ -12,6 +12,6 @@ public class Zombie1 extends Zombie{
     }
 
     public void move() {
-        super.translation(-1, 0);
+        super.translation(-3, 0);
     }
 }

@@ -25,9 +25,9 @@ public abstract class Zombie implements Creature{
     }
 
     public void translation(int x, int y) {
-        position.setAbsis(position.getAbsis()+x);
-        position.setOrdinat(position.getOrdinat()+y);
-        
+        this.position.setAbsis(this.position.getAbsis()+x);
+        this.position.setOrdinat(this.position.getOrdinat()+y);
+
     }
     //abstract Methods
     public abstract void attack(Plant taneman); //method untuk menyerang
