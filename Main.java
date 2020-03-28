@@ -18,6 +18,7 @@ public class Main{
 
 			// ditanya program mau beli tumbuhan apa ngga
 			int pilihanUser = 99;
+			System.out.println("Sunflower Point yang kamu miliki sekarang: " + sunfPoint);
 			listOfPlants.printList(sunfPoint); //kasi list tumbuhan berdasarkan sunfPoint yang dimiliki
 			System.out.print("Pilih salah satu: ");
 			int banyakPilihan = listOfPlants.banyakPilihan(sunfPoint);
@@ -49,6 +50,7 @@ public class Main{
 
 				// user memilih lagi
 				System.out.println("Silahkan pilih lagi");
+				System.out.println("Sunflower Point yang kamu miliki sekarang: " + sunfPoint);
 				listOfPlants.printList(sunfPoint);
 				System.out.print("Pilih salah satu: ");
 				banyakPilihan = listOfPlants.banyakPilihan(sunfPoint);
