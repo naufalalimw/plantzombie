@@ -1,7 +1,7 @@
 public abstract class Zombie implements Creature{
-    public int HP;
-    public Point position;
-    public int attack;
+    private int HP;
+    private Point position;
+    private int attack;
 
     //Implementasi Interface
     public void takeDamage(int damage){
@@ -23,8 +23,14 @@ public abstract class Zombie implements Creature{
     public Point getPosition(){
         return this.position;
     }
+
+    public void translation(int x, int y) {
+        position.setAbsis(position.getAbsis()+x);
+        position.setOrdinat(position.getOrdinat()+y);
+        
+    }
     //abstract Methods
-    public abstract void attack(); //method untuk menyerang
+    public abstract void attack(Plant taneman); //method untuk menyerang
     public abstract void move(); //method untuk bergerak
 
 
