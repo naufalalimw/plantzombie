@@ -17,7 +17,9 @@ public class Field{
         boolean isPlanted; //bernilai true jika sudah tertanam
         boolean isZombie; //bernilai true jika ada zombie di petak
         int n_bullet_damage; //damage bullet yg ada di petak jika di petak terdapat bullet
-            
+        String view; //ini adalah yang ditampilkan nantinya
+        
+        //konstruktor petak
         public Petak(int x, int y){
             this.x=x;
             this.y=y;
@@ -25,11 +27,26 @@ public class Field{
             isPlanted=false;
             isZombie=false;
             n_bullet_damage=0;
+            this.view="";
+        }
 
+        //ada zombie di petak
+        public void adaZombie(){
+            this.isNull=false;
+            this.isZombie=true;
+            this.view="¬[º-°¬]";
+        }
+
+        //ada plant di petak
+        public void adaPlant(){
+            this.isNull=false;
+            this.isPlanted=true;
+            this.view="¶»";
         }
     } 
     
-    //Konstruktor
+    //Konstruktor Field
+    //membuat array of reference ke petak
     public Field(){
         Petak[] petaks = new Petak[jmlh_petak];
         int n=0;
@@ -41,8 +58,13 @@ public class Field{
         }
     }
 
-    //
-    //public void printField(){
-    //    for
-    //}
+    //Mencetak field
+    public void printField(Petak[] petaks ){
+        System.out.println("###########################################################################");
+        System.out.println("---------------------------------------------------------------------------");
+        for (int i=0;i<=44;i+=11){
+            System.out.println("| "+petaks[i+0].view+" | "+petaks[i+1].view+" | "+petaks[i+2].view+" | "+petaks[i+3].view+" | "+petaks[i+4].view+" | "+petaks[i+5].view+" | "+petaks[i+6].view+" | "+petaks[i+7].view+" | "+petaks[i+8].view+" | "+petaks[i+9].view+" | "+petaks[i+10].view+" |");
+            System.out.println("---------------------------------------------------------------------------");
+        }
+    }
 }
