@@ -43,6 +43,11 @@ public class Field{
             this.isPlanted=true;
             this.view="¶»";
         }
+
+        // mengembalikan true jika petak kosong
+        public boolean isPetakKosong() {
+            return isNull.equals(true) && isPlanted.equals(false) && isZombie.equals(false)
+        }
     } 
     
     //Konstruktor Field
@@ -67,4 +72,6 @@ public class Field{
             System.out.println("---------------------------------------------------------------------------");
         }
     }
+
+    
 }
