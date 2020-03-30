@@ -67,6 +67,12 @@ public class Field{
                 this.creature = tanaman;
             }
         }
+
+        public void translation(int x, int y) {
+            this.x += x;
+            this.y += y;
+    
+        }
     } 
     
     //Konstruktor Field
