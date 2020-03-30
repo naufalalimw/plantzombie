@@ -1,7 +1,7 @@
 public abstract class Zombie implements Creature{
-    private int HP;
-    private Point position;
-    private int attack;
+    protected int HP;
+    protected Point position;
+    protected int attack;
 
     //Implementasi Interface
     public void takeDamage(int damage){
