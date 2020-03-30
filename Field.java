@@ -8,7 +8,8 @@ public class Field{
     private final int y_max_view=4;//koordinat y maksimal yang terlihat
     private final int x_max=10;//koordinat x maksimal, tidak terlihat, untuk spawn zombie
     private final int jmlh_petak=55;
-    
+    private Petak[] petaknya;
+
     //Petak
     public class Petak{
         int x; //posisi x
@@ -18,6 +19,7 @@ public class Field{
         boolean isZombie; //bernilai true jika ada zombie di petak
         int n_bullet_damage; //damage bullet yg ada di petak jika di petak terdapat bullet
         String view; //ini adalah yang ditampilkan nantinya
+        Creature creature;
         
         //konstruktor petak
         public Petak(int x, int y){
@@ -27,7 +29,8 @@ public class Field{
             isPlanted=false;
             isZombie=false;
             n_bullet_damage=0;
-            this.view="";
+            this.view="  ";
+            this.creature = null;
         }
 
         //ada zombie di petak
@@ -46,7 +49,14 @@ public class Field{
 
         // mengembalikan true jika petak kosong
         public boolean isPetakKosong() {
-            return isNull.equals(true) && isPlanted.equals(false) && isZombie.equals(false)
+            return isNull;
+        }
+
+        public void isiPlant(String namaTanaman) {
+            if (namaTanaman.equals("PeaPlant")) {
+                Plant tanaman = new PeaPlant();
+                this.creature = tanaman;
+            }
         }
     } 
     
@@ -61,14 +71,20 @@ public class Field{
                 n++;
             }
         }
+        this.petaknya = petaks;
+    }
+
+    //getter petaknya
+    public Petak[] getPetak() {
+        return this.petaknya;
     }
 
     //Mencetak field
-    public void printField(Petak[] petaks ){
+    public void printField(){
         System.out.println("###########################################################################");
         System.out.println("---------------------------------------------------------------------------");
         for (int i=0;i<=44;i+=11){
-            System.out.println("| "+petaks[i+0].view+" | "+petaks[i+1].view+" | "+petaks[i+2].view+" | "+petaks[i+3].view+" | "+petaks[i+4].view+" | "+petaks[i+5].view+" | "+petaks[i+6].view+" | "+petaks[i+7].view+" | "+petaks[i+8].view+" | "+petaks[i+9].view+" | "+petaks[i+10].view+" |");
+            System.out.println("| "+this.petaknya[i+0].view+" | "+this.petaknya[i+1].view+" | "+this.petaknya[i+2].view+" | "+this.petaknya[i+3].view+" | "+this.petaknya[i+4].view+" | "+this.petaknya[i+5].view+" | "+this.petaknya[i+6].view+" | "+this.petaknya[i+7].view+" | "+this.petaknya[i+8].view+" | "+this.petaknya[i+9].view+" | "+this.petaknya[i+10].view+" |");
             System.out.println("---------------------------------------------------------------------------");
         }
     }

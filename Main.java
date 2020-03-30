@@ -7,10 +7,10 @@ public class Main{
 		Scanner input = new Scanner(System.in);
 		// inisialisasi variabel yang akan terus digunakan
 		int sunfPoint = 100; //sunflowerPoint
-		ListMap<String> listOfPlants = new ListMap<String>();
-		listOfPlants.add("PeaPlant",50);
+		ListMap<String> listOfPlants = new ListMap<String>(); //list Plant yang ada di game
+		listOfPlants.add("PeaPlant",50); // add semua plant
 		boolean isGameOver = false;
-		//inisialisasi field
+		Field field = new Field(); // inisialisasi field
 
 
 		// gamenya mulai
@@ -36,11 +36,18 @@ public class Main{
 					System.out.print("Masukkan posisi x y: ");
 					posX = input.nextInt();
 					posY = input.nextInt();
-					if ((posX < 0) || (posX > 10) || (posY < 0) || (posY > 4)) {
+					if ((posX < 0) || (posX > 9) || (posY < 0) || (posY > 4)) {
 						System.out.println("Masukan salah. Ulangi: ");
 					} else {
-						System.out.println(listOfPlants.namaTumbuhanTerpilih(pilihanUser, sunfPoint) + " siap ditanam pada (" + posX + "," + posY + ")");
-						inputPosisiBenar = true;
+						if (field.getPetak()[posX+posY*11].isPetakKosong()) {
+							field.getPetak()[posX+posY*11].adaPlant();
+							field.getPetak()[posX+posY*11].isiPlant(listOfPlants.namaTumbuhanTerpilih(pilihanUser, sunfPoint));
+							System.out.println(listOfPlants.namaTumbuhanTerpilih(pilihanUser, sunfPoint) + " siap ditanam pada (" + posX + "," + posY + ")");
+							inputPosisiBenar = true;
+						}
+						else {
+							System.out.println("Tidak dapat menanam tumbuhan pada kotak tersebut. Ulangi!");
+						}
 					} // masih ada kondisi else if dimana posisinya udah ditempati di field
 				}
 
@@ -61,8 +68,7 @@ public class Main{
 					pilihanUser = input.nextInt();
 				}
 			}
-			
-
+			field.printField();
 
 			isGameOver = true;
 		}

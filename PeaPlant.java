@@ -1,8 +1,8 @@
 public class PeaPlant extends Plant {
 	//konstruktor
-	public PeaPlant(Point p) {
+	public PeaPlant() {
 		this.hp = 100;
-		this.position = p;
+		// this.position = p;
 		this.attack = 1;
 		this.price = 50;
 	}
