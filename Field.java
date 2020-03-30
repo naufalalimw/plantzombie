@@ -17,6 +17,7 @@ public class Field{
         boolean isNull;
         boolean isPlanted; //bernilai true jika sudah tertanam
         boolean isZombie; //bernilai true jika ada zombie di petak
+        boolean isShot;   //bernilai true jika bullet ada di petak
         int n_bullet_damage; //damage bullet yg ada di petak jika di petak terdapat bullet
         String view; //ini adalah yang ditampilkan nantinya
         Creature creature;
@@ -28,6 +29,7 @@ public class Field{
             isNull=true;
             isPlanted=false;
             isZombie=false;
+            isShot = false;
             n_bullet_damage=0;
             this.view="  ";
             this.creature = null;
@@ -45,6 +47,13 @@ public class Field{
             this.isNull=false;
             this.isPlanted=true;
             this.view="¶»";
+        }
+
+        //ada shot di petak
+        public void adaShot(){
+            this.isNull = false;
+            this.isShot = true;
+            this.view = "O";
         }
 
         // mengembalikan true jika petak kosong
