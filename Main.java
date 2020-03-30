@@ -48,10 +48,8 @@ public class Main{
 						else {
 							System.out.println("Tidak dapat menanam tumbuhan pada kotak tersebut. Ulangi!");
 						}
-					} // masih ada kondisi else if dimana posisinya udah ditempati di field
+					}
 				}
-
-				// tambahin tumbuhan baru ke field
 
 				sunfPoint = sunfPoint - listOfPlants.hargaTumbuhanTerpilih(pilihanUser, sunfPoint); //kurangi sunfPoint
 
@@ -68,8 +66,14 @@ public class Main{
 					pilihanUser = input.nextInt();
 				}
 			}
-			field.printField();
+			field.printField(); // untuk print field sebelum bullet sama zombienya jalan
 
+			// fungsi untuk zombie jalan dan bullet nyerang dan regenerate
+
+			field.printField(); // untuk print field setelah bullet sama zombienya jalan
+
+
+			// cek dulu apakah ada zombie yang sampe ujung kiri
 			isGameOver = true;
 		}
 
