@@ -1,9 +1,12 @@
+import java.util.ArrayList;
+
 public abstract class Plant implements Creature{
     protected int hp;
     // protected Point position;
     protected int attack;
     protected int price;
     protected Point position;
+    protected ArrayList<Shot> Shots = new ArrayList<Shot>();
 
     //Implementasi Interface
     public void takeDamage(int damage){
