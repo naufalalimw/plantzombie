@@ -53,6 +53,12 @@ public abstract class Plant implements Creature{
         return (this.hp <= 0);
     }
     
+    public int getStep(){
+        return 0;
+    }
+    public void setStep (int x){
+        //do nothing
+    }
     //abstract Methods
     // public abstract void attack(); //method untuk menyerang
 

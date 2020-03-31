@@ -20,6 +20,14 @@ public abstract class Zombie implements Creature{
         return (this.HP <= 0);
     }
 
+    public int getStep(){
+        return this.step;
+    }
+
+    public void setStep(int x){
+        this.step=x;
+    }
+
     //abstract Methods
     // public abstract void attack(Plant taneman); //method untuk menyerang
 
