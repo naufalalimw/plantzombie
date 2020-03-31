@@ -6,8 +6,8 @@ public class Zombie2 extends Zombie{
         this.step=2;
     }
 
-    public void attack(Plant taneman) {
-        int damage = super.getAttack();
-        taneman.takeDamage(damage);
-    }
+    // public void attack(Plant taneman) {
+    //     int damage = super.getAttack();
+    //     taneman.takeDamage(damage);
+    // }
 }
