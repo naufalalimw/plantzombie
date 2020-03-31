@@ -235,7 +235,6 @@ public class Field{
         }
     }
 
-
     public void shotMaju() {
         int i;
         for (i=54;i>=0;i--) {
