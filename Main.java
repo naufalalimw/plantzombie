@@ -73,7 +73,6 @@ public class Main{
 					pilihanUser = input.nextInt();
 				}
 			}
-			field.printField(); // untuk print field sebelum bullet sama zombienya jalan
 
 			// fungsi zombienya muncul
 			int posisiZombie = rand.nextInt(5);
@@ -82,8 +81,11 @@ public class Main{
 			field.getPetak()[posisiZombie].isiZombie(tipeZombie);
 			field.getPetak()[posisiZombie].adaZombie();
 
+			field.printField(); // untuk print field sebelum bullet sama zombienya jalan
+			
 			// fungsi untuk zombie jalan dan bullet nyerang dan regenerate
 			field.shotMaju();
+			field.zombieWalk();
 
 			field.printField(); // untuk print field setelah bullet sama zombienya jalan
 
