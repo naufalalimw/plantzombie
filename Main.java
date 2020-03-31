@@ -16,7 +16,7 @@ public class Main{
 		boolean isGameOver = false;
 		Field field = new Field(); // inisialisasi field
 		System.out.println(" $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$	");
-		System.out.println("    Welcome to ")
+		System.out.println("    Welcome to ");
 		System.out.println("    ___ _          _             ____             __   _                   	");
         System.out.println("   | _ \\ |__ _ _ _| |_  __ __   /_  / ___  __ _  / /  (_)__ 	");
         System.out.println("   |  _/ / _` | \' \\  _| \\ V /   / /_/ _ \\/  ' \\/ _ \\/ / -_)	");
