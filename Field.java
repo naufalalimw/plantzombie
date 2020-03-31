@@ -103,8 +103,8 @@ public class Field{
                     break;
                 }else if(petaknya[i-1].isPlanted){
                     //kirim damage ke plant
+                    petaknya[i-1].creature.takeDamage(petaknya[i].creature.getAttack());
                     //gimana caranya biar si plant ini dapet damagenya ya
-                    
                 }else{
                     if(petaknya[i].isShot){
                         //gimana cara kasih damagenya ke zombie ya
