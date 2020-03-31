@@ -1,15 +1,18 @@
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Random;
 
 public class Main{
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
+		Random rand = new Random();
 		// inisialisasi variabel yang akan terus digunakan
 		int sunfPoint = 100; //sunflowerPoint
 		ListMap<String> listOfPlants = new ListMap<String>(); //list Plant yang ada di game
 		listOfPlants.add("MushroomPlant",25);
 		listOfPlants.add("PeaPlant",50); // add semua plant
+		int n_zombies = 2;
 		boolean isGameOver = false;
 		Field field = new Field(); // inisialisasi field
 
@@ -72,6 +75,13 @@ public class Main{
 				}
 			}
 			field.printField(); // untuk print field sebelum bullet sama zombienya jalan
+
+			// fungsi zombienya muncul
+			int posisiZombie = rand.nextInt(5);
+			posisiZombie = posisiZombie*11 + 10;
+			field.getPetak()[posisiZombie].adaZombie();
+			int tipeZombie = rand.nextInt(2);
+			field.getPetak()[posisiZombie].isiZombie(tipeZombie);
 
 			// fungsi untuk zombie jalan dan bullet nyerang dan regenerate
 
