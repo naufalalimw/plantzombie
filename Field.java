@@ -31,7 +31,7 @@ public class Field{
             isZombie=false;
             isShot = false;
             n_bullet_damage=0;
-            this.view="       ";
+            this.view="        ";
             this.creature = null;
         }
 
@@ -53,7 +53,6 @@ public class Field{
 
         //ada shot di petak
         public void adaShot(){
-            this.isNull = false;
             this.isShot = true;
             this.view = n_bullet_damage.toString();
         }
@@ -70,6 +69,17 @@ public class Field{
             } else if (namaTanaman.equals("MushroomPlant")) {
                 Plant tanaman = new MushroomPlant();
                 this.creature = tanaman;
+            }
+        }
+
+        public void isiZombie(int tipeZombie) {
+            if (tipeZombie == 0) {
+                Zombie zombie = new Zombie1();
+                this.creature = zombie;
+            } 
+            else if (tipeZombie == 1) {
+                Zombie zombie = new Zombie2();
+                this.creature = zombie;
             }
         }
 
@@ -124,9 +134,53 @@ public class Field{
         //jika di belakangnya posisi akhir ada zombie, tidak perlu gerak
     }
     */
+    /*
     public void gameOver(){
 
     }
+
+    public void shotMaju() {
+        int i;
+        for (i=54;i>=0;i--) {
+            if (petaknya[i].isPlanted) {
+                petaknya[i].isShot = true;
+                petaknya[i].n_bullet_damage = petaknya[i].creature.getAttack();
+            }
+            if (petaknya[i].isShot) { // liat apakah dia shot atau bukan
+                if (i%11 == 9) {
+                    petaknya[i].isShot = false;
+                    petaknya[i].n_bullet_damage = 0;
+                    if (!petaknya[i].isPlanted) {
+                        petaknya[i].view = petaknya[i].n_bullet_damage.toString();
+                    }
+                }
+                else {
+                    petaknya[i+1].isShot = true;
+                    petaknya[i+1].n_bullet_damage = petaknya[i+1].n_bullet_damage + petaknya[i].n_bullet_damage;
+                    petaknya[i].isShot = false;
+                    petaknya[i].n_bullet_damage = 0;
+                    if (!petaknya[i+1].isPlanted && !petaknya[i+1].isZombie){
+                        petaknya[i+1].view = petaknya[i+1].n_bullet_damage.toString();
+                    }
+                    if (!petaknya[i].isPlanted) {
+                        petaknya[i].view = petaknya[i].n_bullet_damage.toString();    
+                    }
+                    if (petaknya[i+1].isZombie) { //kalau depannya ada zombie
+                        petaknya[i+1].creature.takeDamage(petaknya[i+1].n_bullet_damage); // kasi damage ke zombie
+                        petaknya[i+1].isShot = false; // shot jadi false
+                        petaknya[i+1].n_bullet_damage = 0; // damage udah diterima zombie
+                        if (petaknya[i+1].creature.isDead()) {
+                            petaknya[i+1].view = "       ";
+                            petaknya[i+1].creature = null;
+                            petaknya[i+1].isNull = true;
+                            petaknya[i+1].isZombie = false;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    */
 
     //Mencetak field
     public void printField(){
