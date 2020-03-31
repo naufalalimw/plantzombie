@@ -47,7 +47,7 @@ public class Field{
         public void adaPlant(){
             this.isNull=false;
             this.isPlanted=true;
-            this.view="ʕっ•̫•ʔっ ";
+            this.view="(＾┌＾)┌ ";
             //"༼ ಠل͟ಠ༽ "
         }
 
@@ -97,21 +97,22 @@ public class Field{
     }
 
     //
+    /*
     public void zombieWalk(){
         for (int i=0;i<=44;i+=11){
-            for (int j=i;j>=j-this.petaknya[j].step/* ini gimana caranya akses stepnya */ ;i--){
-                if ((i-1) % 11==0){ //udah diujung
+            for (int j=i;j>=j-this.petaknya[j].creature.step ;i--){// ini gimana caranya akses stepnya 
+                if ((j-1) % 11==0){ //udah diujung
                     //gameOver
                     break;
-                }else if(petaknya[i-1].isPlanted){
+                }else if(petaknya[j-1].isPlanted){
                     //kirim damage ke plant
-                    petaknya[i-1].creature.takeDamage(petaknya[i].creature.getAttack());
+                    petaknya[j-1].creature.takeDamage(petaknya[j].creature.getAttack());
                     //gimana caranya biar si plant ini dapet damagenya ya
                 }else{
-                    if(petaknya[i].isShot){
+                    if(petaknya[j].isShot){
                         //gimana cara kasih damagenya ke zombie ya
-                        petaknya[i].creature.takeDamage(petaknya[i].n_bullet_damage);
-                        petaknya[i].isShot=false;
+                        petaknya[j].creature.takeDamage(petaknya[j].n_bullet_damage);
+                        petaknya[j].isShot=false;
                     }
                 }
             }
@@ -119,6 +120,7 @@ public class Field{
         //jika di posisi akhir ada zombie, mundur selangkah, (khusus untuk zombie yg gerak 2 langkah)
         //jika di belakangnya posisi akhir ada zombie, tidak perlu gerak
     }
+    */
     public void gameOver(){
 
     }

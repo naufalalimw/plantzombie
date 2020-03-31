@@ -8,6 +8,7 @@ public class Main{
 		// inisialisasi variabel yang akan terus digunakan
 		int sunfPoint = 100; //sunflowerPoint
 		ListMap<String> listOfPlants = new ListMap<String>(); //list Plant yang ada di game
+		listOfPlants.add("MushroomPlant",25);
 		listOfPlants.add("PeaPlant",50); // add semua plant
 		boolean isGameOver = false;
 		Field field = new Field(); // inisialisasi field
