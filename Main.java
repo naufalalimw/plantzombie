@@ -47,9 +47,8 @@ public class Main{
 						System.out.println("Masukan salah. Ulangi: ");
 					} else {
 						if (field.getPetak()[posX+posY*11].isPetakKosong()) {
-							field.getPetak()[posX+posY*11].adaPlant();
-							System.out.println(listOfPlants.namaTumbuhanTerpilih(pilihanUser, sunfPoint));
 							field.getPetak()[posX+posY*11].isiPlant(listOfPlants.namaTumbuhanTerpilih(pilihanUser, sunfPoint));
+							field.getPetak()[posX+posY*11].adaPlant();
 							System.out.println(listOfPlants.namaTumbuhanTerpilih(pilihanUser, sunfPoint) + " siap ditanam pada (" + posX + "," + posY + ")");
 							inputPosisiBenar = true;
 						}
@@ -79,9 +78,9 @@ public class Main{
 			// fungsi zombienya muncul
 			int posisiZombie = rand.nextInt(5);
 			posisiZombie = posisiZombie*11 + 10;
-			field.getPetak()[posisiZombie].adaZombie();
 			int tipeZombie = rand.nextInt(2);
 			field.getPetak()[posisiZombie].isiZombie(tipeZombie);
+			field.getPetak()[posisiZombie].adaZombie();
 
 			// fungsi untuk zombie jalan dan bullet nyerang dan regenerate
 			field.shotMaju();

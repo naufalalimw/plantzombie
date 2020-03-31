@@ -39,16 +39,22 @@ public class Field{
         public void adaZombie(){
             this.isNull=false;
             this.isZombie=true;
-            this.view="¬[º-°¬]";
-            //"⊂(◑▃◑⊂)"
+            if (this.creature.getClass().getName().equals("Zombie1")) {
+                this.view = "\u01791";
+            } else if (this.creature.getClass().getName().equals("Zombie2")) {
+                this.view = "\u01792";
+            }
         }
 
         //ada plant di petak
         public void adaPlant(){
             this.isNull=false;
             this.isPlanted=true;
-            this.view="(＾┌＾)┌ ";
-            //"༼ ಠل͟ಠ༽ "
+            if (this.creature.getClass().getName().equals("PeaPlant")) {
+                this.view="\u00B6P";
+            } else if (this.creature.getClass().getName().equals("MushroomPlant")) {
+                this.view="\u00B6M";
+            }
         }
 
         //ada shot di petak
@@ -144,7 +150,7 @@ public class Field{
         for (i=54;i>=0;i--) {
             if (petaknya[i].isPlanted) { // liat apakah dia Plant atau tidak
                 petaknya[i].isShot = true;
-                petaknya[i].n_bullet_damage = petaknya[i].creature.getAttack();
+                petaknya[i].n_bullet_damage = petaknya[i].n_bullet_damage + petaknya[i].creature.getAttack();
             }
             if (petaknya[i].isShot) { // liat apakah dia shot atau bukan
                 if (i%11 == 9) {
