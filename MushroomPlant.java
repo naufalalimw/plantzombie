@@ -8,5 +8,9 @@ public class MushroomPlant extends Plant {
 	}
 
 	// implements abstrack methods
-	
+	public void attack(){
+		Point shotPosition = new Point(this.position.getAbsis()+1,this.position.getOrdinat());
+		Shot newShot = new Shot(this.attack);
+		Shots.add(newShot);
+	}
 }

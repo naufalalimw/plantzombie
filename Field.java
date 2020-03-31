@@ -65,6 +65,9 @@ public class Field{
             if (namaTanaman.equals("PeaPlant")) {
                 Plant tanaman = new PeaPlant();
                 this.creature = tanaman;
+            } else if (namaTanaman.equals("MushroomPlant")) {
+                Plant tanaman = new MushroomPlant();
+                this.creature = tanaman;
             }
         }
 

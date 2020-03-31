@@ -8,7 +8,8 @@ public class Main{
 		// inisialisasi variabel yang akan terus digunakan
 		int sunfPoint = 100; //sunflowerPoint
 		ListMap<String> listOfPlants = new ListMap<String>(); //list Plant yang ada di game
-		listOfPlants.add("PeaPlant",50); // add semua plant
+		listOfPlants.add("MushroomPlant",25);
+		listOfPlants.add("PeaPlant",50); // add semua plant harus terurut membesar berdasarkan sunfPoint
 		boolean isGameOver = false;
 		Field field = new Field(); // inisialisasi field
 
@@ -41,6 +42,7 @@ public class Main{
 					} else {
 						if (field.getPetak()[posX+posY*11].isPetakKosong()) {
 							field.getPetak()[posX+posY*11].adaPlant();
+							System.out.println(listOfPlants.namaTumbuhanTerpilih(pilihanUser, sunfPoint));
 							field.getPetak()[posX+posY*11].isiPlant(listOfPlants.namaTumbuhanTerpilih(pilihanUser, sunfPoint));
 							System.out.println(listOfPlants.namaTumbuhanTerpilih(pilihanUser, sunfPoint) + " siap ditanam pada (" + posX + "," + posY + ")");
 							inputPosisiBenar = true;
@@ -74,6 +76,7 @@ public class Main{
 
 
 			// cek dulu apakah ada zombie yang sampe ujung kiri
+
 			isGameOver = true;
 		}
 
