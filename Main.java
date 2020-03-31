@@ -84,6 +84,7 @@ public class Main{
 			field.getPetak()[posisiZombie].isiZombie(tipeZombie);
 
 			// fungsi untuk zombie jalan dan bullet nyerang dan regenerate
+			field.shotMaju();
 
 			field.printField(); // untuk print field setelah bullet sama zombienya jalan
 

@@ -31,7 +31,7 @@ public class Field{
             isZombie=false;
             isShot = false;
             n_bullet_damage=0;
-            this.view="        ";
+            this.view="  ";
             this.creature = null;
         }
 
@@ -134,7 +134,7 @@ public class Field{
         //jika di belakangnya posisi akhir ada zombie, tidak perlu gerak
     }
     */
-    /*
+    
     public void gameOver(){
 
     }
@@ -142,7 +142,7 @@ public class Field{
     public void shotMaju() {
         int i;
         for (i=54;i>=0;i--) {
-            if (petaknya[i].isPlanted) {
+            if (petaknya[i].isPlanted) { // liat apakah dia Plant atau tidak
                 petaknya[i].isShot = true;
                 petaknya[i].n_bullet_damage = petaknya[i].creature.getAttack();
             }
@@ -180,15 +180,15 @@ public class Field{
             }
         }
     }
-    */
+    
 
     //Mencetak field
     public void printField(){
-        System.out.println("###########################################################################");
-        System.out.println("---------------------------------------------------------------------------");
+        System.out.println("######################## FIELD #########################");
+        System.out.println("--------------------------------------------------------");
         for (int i=0;i<=44;i+=11){
             System.out.println("| "+this.petaknya[i+0].view+" | "+this.petaknya[i+1].view+" | "+this.petaknya[i+2].view+" | "+this.petaknya[i+3].view+" | "+this.petaknya[i+4].view+" | "+this.petaknya[i+5].view+" | "+this.petaknya[i+6].view+" | "+this.petaknya[i+7].view+" | "+this.petaknya[i+8].view+" | "+this.petaknya[i+9].view+" | "+this.petaknya[i+10].view+" |");
-            System.out.println("---------------------------------------------------------------------------");
+            System.out.println("----------------------------------------------------");
         }
     }
 
