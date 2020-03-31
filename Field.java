@@ -160,10 +160,6 @@ public class Field{
         //jika di posisi akhir ada zombie, mundur selangkah, (khusus untuk zombie yg gerak 2 langkah)
         //jika di belakangnya posisi akhir ada zombie, tidak perlu gerak
     }
-    
-    public void gameOver(){
-
-    }
 
     public void shotMaju() {
         int i;
