@@ -35,7 +35,7 @@ public class Field{
             this.creature = null;
         }
 
-        //ada zombie di petak
+        //ada zombie di petak, tapi gimana bedain print untuk zombie1 dan 2?
         public void adaZombie(){
             this.isNull=false;
             this.isZombie=true;
@@ -92,6 +92,31 @@ public class Field{
     //getter petaknya
     public Petak[] getPetak() {
         return this.petaknya;
+    }
+
+    //
+    public void zombieWalk(){
+        for (int i=0;i<=44;i+=11){
+            for (int j=i;j>=j-this.petaknya[j].step/* ini gimana caranya akses stepnya */ ;i--){
+                if ((i-1) % 11==0){ //udah diujung
+                    //gameOver
+                    break;
+                }else if(petaknya[i-1].isPlanted){
+                    //kirim damage ke plant
+                    //gimana caranya biar si plant ini dapet damagenya ya
+                }else{
+                    if(petaknya[i].isShot){
+                        //gimana cara kasih damagenya ke zombie ya
+                        petaknya[i].isShot=false;
+                    }
+                }
+            }
+        }
+        //jika di posisi akhir ada zombie, mundur selangkah, (khusus untuk zombie yg gerak 2 langkah)
+        //jika di belakangnya posisi akhir ada zombie, tidak perlu gerak
+    }
+    public void gameOver(){
+
     }
 
     //Mencetak field
