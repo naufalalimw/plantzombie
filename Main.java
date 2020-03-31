@@ -15,8 +15,7 @@ public class Main{
 		int n_zombies = 2;
 		boolean isGameOver = false;
 		Field field = new Field(); // inisialisasi field
-
-
+		
 		// gamenya mulai
 		while (!isGameOver) {
 			//Menambah sunflower point tiap turn sebanyak 15
