@@ -91,7 +91,7 @@ public class Main{
 			// Mengecek dulu apakah ada zombie yang sampe ujung kiri
 			int n = 1;
 			while (n <= 40 && !isGameOver){
-				if(field.getPetak()[n].x == 1){
+				if(field.getPetak()[n].x == 0){
 					if(field.getPetak()[n].isZombie){
 						isGameOver = true;				//jika ada maka game over
 					}
