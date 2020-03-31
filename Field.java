@@ -104,9 +104,11 @@ public class Field{
                 }else if(petaknya[i-1].isPlanted){
                     //kirim damage ke plant
                     //gimana caranya biar si plant ini dapet damagenya ya
+                    
                 }else{
                     if(petaknya[i].isShot){
                         //gimana cara kasih damagenya ke zombie ya
+                        petaknya[i].creature.takeDamage(petaknya[i].n_bullet_damage);
                         petaknya[i].isShot=false;
                     }
                 }
