@@ -30,7 +30,7 @@ public class Field{
             isPlanted=false;
             isZombie=false;
             isShot = false;
-            n_bullet_damage=0;
+            n_bullet_damage=0; 
             this.view="  ";
             this.creature = null;
         }
@@ -108,7 +108,7 @@ public class Field{
                     //kirim damage ke plant
                     //gimana caranya biar si plant ini dapet damagenya ya
                     
-                }else{
+                }else{ //zombienya jalan biasa
                     if(petaknya[i].isShot){
                         //gimana cara kasih damagenya ke zombie ya
                         petaknya[i].creature.takeDamage(petaknya[i].n_bullet_damage);
