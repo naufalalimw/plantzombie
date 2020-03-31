@@ -31,7 +31,7 @@ public class Field{
             isZombie=false;
             isShot = false;
             n_bullet_damage=0;
-            this.view="  ";
+            this.view="       ";
             this.creature = null;
         }
 
@@ -40,15 +40,15 @@ public class Field{
             this.isNull=false;
             this.isZombie=true;
             this.view="¬[º-°¬]";
-            //⊂(◑ ▃ ◑⊂)
+            //"⊂(◑▃◑⊂)"
         }
 
         //ada plant di petak
         public void adaPlant(){
             this.isNull=false;
             this.isPlanted=true;
-            this.view="ʕु•̫•ʔु";
-            //༼  ಠل͟ಠ༽
+            this.view="ʕっ•̫•ʔっ ";
+            //"༼ ಠل͟ಠ༽ "
         }
 
         //ada shot di petak
