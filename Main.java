@@ -9,7 +9,7 @@ public class Main{
 		int sunfPoint = 100; //sunflowerPoint
 		ListMap<String> listOfPlants = new ListMap<String>(); //list Plant yang ada di game
 		listOfPlants.add("MushroomPlant",25);
-		listOfPlants.add("PeaPlant",50); // add semua plant harus terurut membesar berdasarkan sunfPoint
+		listOfPlants.add("PeaPlant",50); // add semua plant
 		boolean isGameOver = false;
 		Field field = new Field(); // inisialisasi field
 
