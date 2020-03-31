@@ -3,7 +3,7 @@ public class MushroomPlant extends Plant {
 	// konstruktor
 	public MushroomPlant() {
 		this.hp = 50;
-		this.attack = 1;
+		this.attack = 10;
 		this.price = 25;
 	}
 

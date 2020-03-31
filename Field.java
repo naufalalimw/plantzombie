@@ -18,7 +18,7 @@ public class Field{
         boolean isPlanted; //bernilai true jika sudah tertanam
         boolean isZombie; //bernilai true jika ada zombie di petak
         boolean isShot;   //bernilai true jika bullet ada di petak
-        int n_bullet_damage; //damage bullet yg ada di petak jika di petak terdapat bullet
+        Integer n_bullet_damage; //damage bullet yg ada di petak jika di petak terdapat bullet
         String view; //ini adalah yang ditampilkan nantinya
         Creature creature;
         
@@ -40,20 +40,22 @@ public class Field{
             this.isNull=false;
             this.isZombie=true;
             this.view="¬[º-°¬]";
+            //⊂(◑ ▃ ◑⊂)
         }
 
         //ada plant di petak
         public void adaPlant(){
             this.isNull=false;
             this.isPlanted=true;
-            this.view="¶»";
+            this.view="ʕु•̫•ʔु";
+            //༼  ಠل͟ಠ༽
         }
 
         //ada shot di petak
         public void adaShot(){
             this.isNull = false;
             this.isShot = true;
-            this.view = "O";
+            this.view = n_bullet_damage.toString();
         }
 
         // mengembalikan true jika petak kosong
@@ -106,8 +108,8 @@ public class Field{
                     break;
                 }else if(petaknya[i-1].isPlanted){
                     //kirim damage ke plant
-                    //gimana caranya biar si plant ini dapet damagenya ya
-                    
+                    petaknya[i-1].creature.takeDamage(petaknya[i].creature.getAttack());
+                    //gimana caranya biar si plant ini dapet damagenya ya                   
                 }else{ //zombienya jalan biasa
                     if(petaknya[i].isShot){
                         //gimana cara kasih damagenya ke zombie ya

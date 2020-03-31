@@ -3,7 +3,7 @@ public class PeaPlant extends Plant {
 	//konstruktor
 	public PeaPlant() {
 		this.hp = 100;
-		this.attack = 2;
+		this.attack = 20;
 		this.price = 50;
 	}
 

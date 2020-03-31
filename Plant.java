@@ -54,7 +54,7 @@ public abstract class Plant implements Creature{
     }
     
     //abstract Methods
-    public abstract void attack(); //method untuk menyerang
+    // public abstract void attack(); //method untuk menyerang
 
 
 }

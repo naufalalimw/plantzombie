@@ -21,7 +21,7 @@ public abstract class Zombie implements Creature{
     }
 
     //abstract Methods
-    public abstract void attack(Plant taneman); //method untuk menyerang
+    // public abstract void attack(Plant taneman); //method untuk menyerang
 
 
 }
