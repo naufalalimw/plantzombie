@@ -56,7 +56,18 @@ public class Field{
             this.isShot = true;
             this.view = n_bullet_damage.toString();
         }
-
+        //membuat petak yang tadinya terisi jadi kosong
+        public void setNull(){
+            if(!isPetakKosong()){
+                isNull=true;
+                isPlanted=false;
+                isZombie=false;
+                isShot = false;
+                n_bullet_damage=0;
+                this.view="  ";
+                this.creature = null;
+            }
+        }
         // mengembalikan true jika petak kosong
         public boolean isPetakKosong() {
             return isNull;
@@ -110,30 +121,39 @@ public class Field{
     }
 
     //
-    /*
     public void zombieWalk(){
-        for (int i=0;i<=44;i+=11){
-            for (int j=i;j>=j-this.petaknya[j].creature.step ;i--){// ini gimana caranya akses stepnya 
-                if ((j-1) % 11==0){ //udah diujung
-                    //gameOver
-                    break;
-                }else if(petaknya[j-1].isPlanted){
-                    //kirim damage ke plant
-                    petaknya[j-1].creature.takeDamage(petaknya[j].creature.getAttack());
-                    //gimana caranya biar si plant ini dapet damagenya ya
-                }else{
+        boolean maju=true;
+            for (int i=0;i<=44;i+=11){
+                for (int j=i;j>=j-this.petaknya[j].creature.getStep() ;i--){
+                    if ((j-1) % 11==0){ //udah diujung
+                        //gameOver
+                        break;
+                    }else if(petaknya[j-1].isPlanted){
+                        //kirim damage ke plant
+                        petaknya[j-1].creature.takeDamage(petaknya[j].creature.getAttack());
+                        maju=false;
+                    }
                     if(petaknya[j].isShot){
-                        //gimana cara kasih damagenya ke zombie ya
+                        //memberikan damage ke zombie
                         petaknya[j].creature.takeDamage(petaknya[j].n_bullet_damage);
                         petaknya[j].isShot=false;
                     }
+                    //selama di petak akhir zombie terdapat zombie lain, petak akhirnya dikurangi
+                    while(petaknya[j-this.petaknya[j].creature.getStep()].isZombie){
+                        petaknya[j].creature.setStep(j-1);
+                    }
+                    //selama maju (depannya tidak ada plant), zombie maju
+                    while(maju){
+                        petaknya[j-1]=petaknya[j];
+                        petaknya[j].setNull();
+                    }
+
+                    }
                 }
             }
-        }
         //jika di posisi akhir ada zombie, mundur selangkah, (khusus untuk zombie yg gerak 2 langkah)
         //jika di belakangnya posisi akhir ada zombie, tidak perlu gerak
     }
-    */
     
     public void gameOver(){
 
