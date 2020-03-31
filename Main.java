@@ -16,16 +16,17 @@ public class Main{
 		boolean isGameOver = false;
 		Field field = new Field(); // inisialisasi field
 		System.out.println(" $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$	");
-        System.out.println("    ___ _          _             ____             __   _                   	");
+		System.out.println("    Welcome to ")
+		System.out.println("    ___ _          _             ____             __   _                   	");
         System.out.println("   | _ \\ |__ _ _ _| |_  __ __   /_  / ___  __ _  / /  (_)__ 	");
         System.out.println("   |  _/ / _` | \' \\  _| \\ V /   / /_/ _ \\/  ' \\/ _ \\/ / -_)	");
         System.out.println("   |_| |_\\__,_|_||_\\__|  \\_/   /___/\\___/_/_/_/_.__/_/\\__/    ver 1.0	        ");
         System.out.println(" $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$	");
         System.out.println("    _|___|___|___|___|__   ---------------------	_|___|___|___|___|__");
-        System.out.println("    _|___|___|___|___|__   |    1. Play Game   |	_|___|___|___|___|__");
-        System.out.println("    _|___|___|___|___|__   |    2. Exit        |	_|___|___|___|___|__");
+        System.out.println("    _|___|___|___|___|__   |  Enjoy the game!  |    _|___|___|___|___|__");
+        System.out.println("    _|___|___|___|___|__   |                   |	_|___|___|___|___|__");
         System.out.println("    _|___|___|___|___|__   ---------------------	_|___|___|___|___|__");
-		System.out.println(" ^^^|^^|^^_^^|_^^├^^_|^^__^^|^^_^^_|^^|^^|_^^|^^|__^^|__^^_^^|_^^|_^^|__^^^");    
+		System.out.println(" ^^^|^^|^^_^^|_^^├^^_|^^__^^|^^_^^_|^^|^^|_^^|^^|__^^|__^^_^^|_^^|_^^|__^^^\n \n");    
 		
 		// gamenya mulai
 		while (!isGameOver) {
