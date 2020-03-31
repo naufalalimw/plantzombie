@@ -19,6 +19,9 @@ public class Main{
 
 		// gamenya mulai
 		while (!isGameOver) {
+			//Menambah sunflower point tiap turn sebanyak 15
+			System.out.println("+15 Sunflower Point");
+			sunfPoint = sunfPoint + 15;
 
 			// ditanya program mau beli tumbuhan apa ngga
 			int pilihanUser = 99;
@@ -85,10 +88,20 @@ public class Main{
 			field.printField(); // untuk print field setelah bullet sama zombienya jalan
 
 
-			// cek dulu apakah ada zombie yang sampe ujung kiri
-
-			isGameOver = true;
+			// Mengecek dulu apakah ada zombie yang sampe ujung kiri
+			int n = 1;
+			while (n <= 40 && !isGameOver){
+				if(field.getPetak()[n].x == 1){
+					if(field.getPetak()[n].isZombie){
+						isGameOver = true;				//jika ada maka game over
+					}
+				}
+				n++;
+			}
+			
 		}
+		//Game over ditampilkan di layar
+		System.out.println("GAME OVER");
 
 
 		
