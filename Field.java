@@ -130,105 +130,42 @@ public class Field{
         int i;
         for (i=1;i<=54;i++) {
             if (petaknya[i].isZombie) {
-                int j;
                 int langkah = petaknya[i].creature.getStep();
-                for (j=1;j<=langkah;j++) {
-                    // cek apakah dia udah di ujung
-                    int q = i-j+1;
-                    if (petaknya[q].x == 0) {
-                        break;
+                String namaZombie = petaknya[i].creature.getClass().getName();
+                if (petaknya[i-1].isNull) { // kalo di depannya kosong
+                    if (petaknya[i-1].isShot) {
+                        petaknya[i].creature.takeDamage(petaknya[i-1].n_bullet_damage);
+                        petaknya[i-1].isShot = false;
+                        petaknya[i-1].n_bullet_damage = 0;
+                        petaknya[i-1].view = "  ";
                     }
-                    // cek apakah ada shot di tempatnya berdiri
-                    if (petaknya[q].isShot) {
-                        petaknya[q].creature.takeDamage(petaknya[q].n_bullet_damage);
-                        petaknya[q].isShot = false;
-                        petaknya[q].n_bullet_damage = 0;
-                        if (petaknya[q].creature.isDead()) {
-                            petaknya[q].isNull = true;
-                            petaknya[q].isZombie = false;
-                            petaknya[q].creature = null;
-                            petaknya[q].view = "  ";
-                            break;
-                        }
+                    if (petaknya[i].creature.isDead()) {
+                        petaknya[i].creature = null;
+                        petaknya[i].isZombie = false;
+                        petaknya[i].isNull = true;
+                        petaknya[i].view = "  ";
+                    } else {
+                        petaknya[i-1].isNull = false;
+                        petaknya[i-1].isZombie = true;
+                        petaknya[i-1].view = petaknya[i].view;
+                        petaknya[i-1].creature = petaknya[i].creature;
+                        petaknya[i].isNull = true;
+                        petaknya[i].isZombie = false;
+                        petaknya[i].view = "  ";
+                        petaknya[i].creature = null;
                     }
-
-                    // cek di depannya ada apa
-                    if (petaknya[q-1].isPlanted) { // kalo depannya Plant
-                        petaknya[q-1].creature.takeDamage(petaknya[q].creature.getAttack());
-                        if (petaknya[q-1].creature.isDead()) {
-                            petaknya[q-1].isNull = true;
-                            petaknya[q-1].isPlanted = false;
-                            petaknya[q-1].isZombie = true;
-                            petaknya[q-1].view = petaknya[q].view;
-                            petaknya[q-1].creature = petaknya[q].creature;
-                            petaknya[q].isNull = true;
-                            petaknya[q].isZombie = false;
-                            petaknya[q].view = "  ";
-                            petaknya[q].creature = null;
-                        }
-                    } 
-                    else if (petaknya[q-1].isZombie) {
-                        //mencari lokasi tempat dia mendarat
-                        int banyakSkip = j-petaknya[q].creature.getStep();
-                        int k=1;
-                        boolean kosong = false;
-                        while (k<=banyakSkip && !kosong && ((q%11-k)>=0)) {
-                            if (petaknya[q-k].isNull) {
-                                kosong = true;
-                            } else {
-                                k++;
-                            }
-                        }
-                        if (kosong) {
-                            if (petaknya[q-k].isShot) {
-                                petaknya[q].creature.takeDamage(petaknya[q-k].n_bullet_damage);
-                                petaknya[q-k].n_bullet_damage = 0;
-                                petaknya[q-k].isShot = false;
-                                petaknya[q-k].view = "  ";
-                            }
-                            if (petaknya[q].creature.isDead()) {
-                                petaknya[q].isNull = true;
-                                petaknya[q].isZombie = false;
-                                petaknya[q].view = "  ";
-                                petaknya[q].creature = null;
-                                break;
-                            } else {
-                                petaknya[q-k].isNull = false;
-                                petaknya[q-k].isZombie = true;
-                                petaknya[q-k].view = petaknya[i].view;
-                                petaknya[q-k].creature = petaknya[q].creature;
-                                petaknya[q].isNull = true;
-                                petaknya[q].isZombie = false;
-                                petaknya[q].view = "  ";
-                                petaknya[q].creature = null;
-                                j = j + k;
-                            }
-                        } else { // ga kosong
-                            break;
-                        }
-                    }
-                    else { // gaada apa2
-                        if (petaknya[q-1].isShot) {
-                            petaknya[q].creature.takeDamage(petaknya[q-1].n_bullet_damage);
-                            petaknya[q-1].isShot = false;
-                            petaknya[q-1].n_bullet_damage = 0;
-                        }
-                        if (petaknya[q].creature.isDead()) {
-                            petaknya[q].isNull = true;
-                            petaknya[q].isZombie = false;
-                            petaknya[q].view = "  ";
-                            petaknya[q].creature = null;
-                        }   
-                        else { // masih hidup
-                            petaknya[q-1].isNull = false;
-                            petaknya[q-1].isZombie = true;
-                            petaknya[q-1].view = petaknya[q].view;
-                            petaknya[q-1].creature = petaknya[q].creature;
-                            petaknya[q].isNull = true;
-                            petaknya[q].isZombie = false;
-                            petaknya[q].view = "  ";
-                            petaknya[q].creature = null;
-                        }
+                }
+                else if (petaknya[i-1].isPlanted) {
+                    petaknya[i-1].creature.takeDamage(petaknya[i].creature.getAttack());
+                    if (petaknya[i-1].creature.isDead()) {
+                        petaknya[i-1].isPlanted = false;
+                        petaknya[i-1].isZombie = true;
+                        petaknya[i-1].view = petaknya[i].view;
+                        petaknya[i-1].creature = petaknya[i].creature;
+                        petaknya[i].isNull = true;
+                        petaknya[i].isZombie = false;
+                        petaknya[i].view = "  ";
+                        petaknya[i].creature = null;
                     }
                 }
             }
